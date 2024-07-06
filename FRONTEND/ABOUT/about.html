@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Waste - About</title>
+    <link rel="stylesheet" href="./about.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Clear Waste</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../INDEX/index.html">Home</a></li>
+                <li><a href="../SERVICE-P/service.html">Service</a></li>
+                <li><a href="../TRACKING/tracking.html">Tracking</a></li>
+                <li><a href="../ABOUT/about.html">About</a></li>
+                <li><a href="../CONTACT/contact.html">Contact Us</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit">Search</button>
+                </div>
+                <div class="dark-mode-toggle">
+                    <button id="dark-mode-toggle">Dark Mode</button>
+                </div>
+                <div class="login">
+                    <a id="login-link" href="../LOGIN/login.html">Login</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="mainpopup">
+        <!-- ACCOUNT popup -->
+        <div class="account-popup" id="account-popup">
+            <div class="account-content">
+                <span class="close" id="close-popup">&times;</span>
+                <h2>Account Details</h2>
+                <div class="account-info">
+                    <p><strong>Name:</strong> <span id="user-name"></span></p>
+                    <p><strong>Email:</strong> <span id="user-email"></span></p>
+                    <p><strong>Address:</strong> <span id="user-address"></span></p>
+                </div>
+                <div class="account-actions">
+                    <button id="update-btn">Update</button>
+                    <button id="delete-btn">Delete</button>
+                    <button id="logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- UPDATE Popup HTML -->
+        <div class="update-popup" id="update-popup">
+            <div class="update-content">
+                <span class="close" id="close-update-popup">&times;</span>
+                <h2>Update Details</h2>
+                <div class="update-info">
+                    <p><strong>Name:</strong> <input type="text" id="new-user-name" /></p>
+                    <p><strong>Email:</strong> <input type="email" id="new-user-email" /></p>
+                    <p><strong>Address:</strong> <input type="text" id="new-user-address" /></p>
+                    <button id="send-otp-btn">Send OTP</button>
+                    <p><strong>OTP:</strong> <input type="text" id="otp" /></p>
+                </div>
+                <div class="update-actions">
+                    <button id="submit-update-btn">Update</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Delete Warning Popup HTML -->
+        <div class="delete-popup" id="delete-popup">
+            <div class="delete-content">
+                <span class="close" id="close-delete-popup">&times;</span>
+                <h2>Delete your account</h2>
+                <p>Are you sure you want to delete your account?<br>This action cannot be undone.</p>
+                <p>Type DELETE to confirm account deletion:</p>
+                <input type="text" id="delete-confirmation"/>
+                <div class="delete-actions">
+                    <button id="confirm-delete-btn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <pre>
+        
+    </pre>
+    <main class="about-page">
+        <section class="about-section">
+            <h1>About Us</h1>
+            <p>Clear Waste is committed to revolutionizing waste management through innovative solutions and community engagement. Our mission is to provide efficient, reliable, and sustainable waste management services that contribute to a cleaner and healthier environment. By leveraging technology, we aim to make waste management seamless and effective for everyone.</p>
+            <p>Our core values include sustainability, community involvement, and technological innovation. We believe in empowering individuals and businesses to manage waste responsibly and efficiently, making our cities greener and healthier.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-flex">
+            <div class="footer-logo">
+                <h2>Clear Waste</h2>
+                <p>Starting from Sorting, Ending in Sustainability. Our small steps in recycling and being responsible for resources have a big impact on environmental conservation.</p>
+                <p>&copy; 2024 Clear Waste. All rights reserved</p>
+            </div>
+            <div class="footer-links">
+                <h4>Clear Waste</h4>
+                <ul>
+                    <li><a href="../INDEX/index.html">Home</a></li>
+                    <li><a href="../CONTACT/contact.html">Contact</a></li>
+                    <li><a href="../CONTACT/contact.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Social Media</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/fay_salwani/"><img src="images/Instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="images/Facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="images/Youtube.png" alt="YouTube"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../INDEX/script.js"></script>
+</body>
+</html>

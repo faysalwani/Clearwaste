@@ -1,0 +1,594 @@
+
+/* ACCOUNT/ UPDATE/ DELETE Popup */
+.account-popup, .update-popup, .delete-popup {
+    display: none; /* Initially hidden */
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.account-content, .update-content, .delete-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    position: relative;
+    text-align: left;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.account-info p, .update-info p, .delete-content p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="email"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.mainpopup button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    padding-left: 35px;
+    padding-right: 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button#delete-btn, button#confirm-delete-btn {
+    background-color: #dc3545;
+}
+
+button#delete-btn:hover, button#confirm-delete-btn:hover {
+    background-color: #ffffff;
+    color: black;
+}
+
+.mainpopup button:hover {
+    background-color: #ffffff;
+    color: black;
+}
+
+.account-actions, .update-actions, .delete-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+
+#submit-update-btn, #confirm-delete-btn, #send-otp-btn{
+    margin-left: 38%;
+    padding: 10px;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-radius: 15px;
+}
+
+/* Tracking id copy */
+.tracking-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.tracking-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+}
+
+.closetc {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.closetc:hover,
+.closetc:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+#tracking-id {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+#copy-tracking-id {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#copy-tracking-id:hover {
+    background-color: #0056b3;
+}
+
+/* General styles for the service popup */
+.service-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.service-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    position: relative;
+    text-align: left;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+#explore-button{
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    padding-left: 35px;
+    padding-right: 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+#explore-button:hover{
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+
+
+button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    padding-left: 35px;
+    padding-right: 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+#copy-tracking-id{
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    padding-left: 35px;
+    padding-right: 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+#copy-tracking-id:hover{
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+/* main*/
+.mains {
+    margin-top: 65px;
+}
+
+.services-hero {
+    position: relative;
+    text-align: center;
+}
+
+.services-hero img {
+    width: 100%;
+    height: auto;
+}
+
+.services-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.services-overlay h2 {
+    margin: 0;
+    font-size: 2em;
+}
+
+
+.info-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: left;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #1abc9c;
+}
+
+.card p {
+    color: #555;
+}
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem 0;
+}
+
+.footer-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-logo, .footer-links, .footer-social {
+    flex: 1;
+    min-width: 200px;
+    margin:30px
+}
+
+.footer-logo p, .footer-links ul, .footer-social {
+    margin: 0.5rem 0;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-social .social-icons a img {
+    width: 30px;
+    height: 30px;
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.footer-social .social-icons a img:hover {
+    transform: scale(1.1);
+}
+
+/* General styles */
+html, body {
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
+    padding-top: 60px; 
+}
+
+header {
+    background-color: #4CAF50; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    transition: background-color 0.3s;/*new*/
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    flex: 1;
+    color: white;
+
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    flex: 2;
+    justify-content: center;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #293029;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    flex: 3;
+    justify-content: flex-end;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-bar input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.search-bar input:focus {
+    border-color: #4CAF50;
+}
+
+.search-bar button {
+    padding: 0.5rem 1rem;
+    background-color: white;
+    color: #4CAF50;
+    font-weight: bold;
+    border: none;
+    border-radius: 45px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.dark-mode-toggle {
+    margin-left: 1rem;
+}
+
+.dark-mode-toggle button {
+    padding: 0.5rem 1rem;
+    background-color: white;
+    color: #4CAF50;
+    font-weight: bold;
+    border: none;
+    border-radius: 45px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode-toggle button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.login a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    color:#4CAF50;
+    border: none;
+    border-radius: 45px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.login a:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode header {
+    background-color: #444;
+}
+
+body.dark-mode nav a {
+    color: #fff;
+}
+
+body.dark-mode .search-bar button,
+body.dark-mode .dark-mode-toggle button,
+body.dark-mode .login a {
+    background-color: #fff;
+    color: #333;
+}
+
+body.dark-mode .search-bar button:hover,
+body.dark-mode .dark-mode-toggle button:hover,
+body.dark-mode .login a:hover {
+    background-color: #333;
+    color: #fff;
+}

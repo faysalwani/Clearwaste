@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear waste - Service</title>
+    <link rel="stylesheet" href="./service.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Clear Waste</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../INDEX/index.html">Home</a></li>
+                <li><a href="../SERVICE-P/service.html">Service</a></li>
+                <li><a href="../TRACKING/tracking.html">Tracking</a></li>
+                <li><a href="../ABOUT/about.html">About</a></li>
+                <li><a href="../CONTACT/contact.html">Contact Us</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button type="submits">Search</button>
+                </div>
+                <div class="dark-mode-toggle">
+                    <button id="dark-mode-toggle">Dark Mode</button>
+                </div>
+                <div class="login">
+                    <a id="login-link" href="../LOGIN/login.html">Login</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="mains">
+        <section class="services-hero">
+            <img src="../SERVICE-P/images/Serviceimg.png" alt="Services Hero">
+            <div class="services-overlay">
+                <h2>Our services</h2>
+                <button id="explore-button">Explore</button>
+            </div>
+        </section>
+        <section class="info-cards">
+            <div class="card">
+                <h3>Message System</h3>
+                <p>Our message system keeps users informed about waste pickup schedules, reducing reliance on loudspeakers. Users can communicate their unavailability through the system, streamlining the waste collection process and minimizing unnecessary waiting times.</p>
+            </div>
+            <div class="card">
+                <h3>Real-time Tracking</h3>
+                <p>Our real-time tracking system provides continuous updates on the location and progress of waste collection vehicles, ensuring transparency and efficiency.</p>
+            </div>
+            <div class="card">
+                <h3>Regular Waste PickUp</h3>
+                <p>We implement a weekly waste collection schedule to prevent overflow, maintaining a clean and healthy environment.</p>
+            </div>
+        </section>
+    </main>
+
+   <!-- Service Popup HTML -->
+<div class="service-popup" id="service-popup">
+    <div class="service-content">
+        <span class="close" id="close-service-popup">&times;</span>
+        <h2>Request Our Service</h2>
+        <form id="service-form">
+            <div>
+                <label for="service-user-name">Name</label>
+                <input type="text" id="service-user-name" readonly value="Fetched from server and displayed here">
+            </div>
+            <div>
+                <label for="service-type">Service For</label>
+                <select id="service-type" required>
+                    <option value="Home">Home</option>
+                    <option value="Business">Business</option>
+                </select>
+            </div>
+            <div>
+                <label for="service-duration">Service Duration</label>
+                <select id="service-duration" required>
+                    <option value="One time">One time</option>
+                    <option value="Daily">Daily</option>
+                    <option value="Weekly">Weekly</option>
+                </select>
+            </div>
+            <div>
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" placeholder="Enter your phone number" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<!-- Tracking Popup HTML -->
+<div class="tracking-popup" id="tracking-popup">
+    <div class="tracking-content">
+        <span class="closetc" id="close-tracking-popup">&times;</span>
+        <h2>Tracking ID</h2>
+        <p>Below is your Tracking ID</p>
+        <p id="tracking-id"></p>
+        <button id="copy-tracking-id">Copy link!</button>
+    </div>
+</div>
+
+<main class="mainpopup">
+    <!-- ACCOUNT popup -->
+    <div class="account-popup" id="account-popup">
+        <div class="account-content">
+            <span class="close" id="close-popup">&times;</span>
+            <h2>Account Details</h2>
+            <div class="account-info">
+                <p><strong>Name:</strong> <span id="user-name"></span></p>
+                <p><strong>Email:</strong> <span id="user-email"></span></p>
+                <p><strong>Address:</strong> <span id="user-address"></span></p>
+            </div>
+            <div class="account-actions">
+                <button id="update-btn">Update</button>
+                <button id="delete-btn">Delete</button>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- UPDATE Popup HTML -->
+    <div class="update-popup" id="update-popup">
+        <div class="update-content">
+            <span class="close" id="close-update-popup">&times;</span>
+            <h2>Update Details</h2>
+            <div class="update-info">
+                <p><strong>Name:</strong> <input type="text" id="new-user-name" /></p>
+                <p><strong>Email:</strong> <input type="email" id="new-user-email" /></p>
+                <p><strong>Address:</strong> <input type="text" id="new-user-address" /></p>
+                <button id="send-otp-btn">Send OTP</button>
+                <p><strong>OTP:</strong> <input type="text" id="otp" /></p>
+            </div>
+            <div class="update-actions">
+                <button id="submit-update-btn">Update</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Warning Popup HTML -->
+    <div class="delete-popup" id="delete-popup">
+        <div class="delete-content">
+            <span class="close" id="close-delete-popup">&times;</span>
+            <h2>Delete your account</h2>
+            <p>Are you sure you want to delete your account?<br>This action cannot be undone.</p>
+            <p>Type DELETE to confirm account deletion:</p>
+            <input type="text" id="delete-confirmation"/>
+            <div class="delete-actions">
+                <button id="confirm-delete-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container footer-flex">
+            <div class="footer-logo">
+                <h2>Clear Waste</h2>
+                <p>Starting from Sorting, Ending in Sustainability. Our small steps in recycling and being responsible
+                    for resources have a big impact on environmental conservation.</p>
+                <p>&copy; 2024 Clear Waste. All rights reserved</p>
+            </div>
+            <div class="footer-links">
+                <h4>Clear Waste</h4>
+                <ul>
+                    <li><a href="../INDEX/index.html">Home</a></li>
+                    <li><a href="../CONTACT/contact.html">Contact</a></li>
+                    <li><a href="../CONTACT/contact.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Social Media</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/fay_salwani/"><img src="images/Instagram.png"
+                            alt="Instagram"></a>
+                    <a href="#"><img src="images/Facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="images/Youtube.png" alt="YouTube"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const exploreButton = document.getElementById('explore-button');
+            const servicePopup = document.getElementById('service-popup');
+            const closeServicePopup = document.getElementById('close-service-popup');
+            const serviceForm = document.getElementById('service-form');
+            const trackingPopup = document.getElementById('tracking-popup');
+            const closeTrackingPopup = document.getElementById('close-tracking-popup');
+            const copyTrackingIdBtn = document.getElementById('copy-tracking-id');
+        
+            // Show service popup if user is logged in, otherwise alert
+            if (exploreButton) {
+                exploreButton.addEventListener('click', () => {
+                    if (localStorage.getItem(TOKEN_KEY)) {
+                        servicePopup.style.display = 'block';
+                        fetchUserDetailsForServiceForm();
+                    } else {
+                        alert('Please log in first to access our services.');
+                    }
+                });
+            }
+        
+            // Close service popup
+            if (closeServicePopup) {
+                closeServicePopup.addEventListener('click', () => {
+                    servicePopup.style.display = 'none';
+                });
+            }
+        
+            // Close tracking popup
+            closeTrackingPopup.addEventListener('click', () => {
+                trackingPopup.style.display = 'none';
+            });
+        
+            // Copy tracking ID
+            copyTrackingIdBtn.addEventListener('click', () => {
+                const trackingId = document.getElementById('tracking-id').innerText;
+                navigator.clipboard.writeText(trackingId).then(() => {
+                    alert('Tracking ID copied to clipboard');
+                });
+            });
+        
+            // Fetch user details for the service form
+            async function fetchUserDetailsForServiceForm() {
+                const userId = localStorage.getItem(USER_ID_KEY);
+                try {
+                    const response = await fetch(`http://localhost:3000/api/auth/user/${userId}`, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`,
+                            'Content-Type': 'application/json',
+                        },
+                    });
+                    const data = await response.json();
+                    document.getElementById('service-user-name').value = data.name;
+                } catch (error) {
+                    console.error('Error fetching user details:', error);
+                }
+            }
+        
+            // Handle service form submission
+            if (serviceForm) {
+                serviceForm.addEventListener('submit', async function (event) {
+                    event.preventDefault();
+        
+                    const userId = localStorage.getItem(USER_ID_KEY);
+                    const name = document.getElementById('service-user-name').value;
+                    const serviceType = document.getElementById('service-type').value;
+                    const serviceDuration = document.getElementById('service-duration').value;
+                    const phone = document.getElementById('phone').value;
+        
+                    try {
+                        const response = await fetch('http://localhost:3000/api/service/create', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${localStorage.getItem(TOKEN_KEY)}`,
+                            },
+                            body: JSON.stringify({ userId, name, serviceType, serviceDuration, phone }),
+                        });
+        
+                        const data = await response.json();
+        
+                        if (response.ok) {
+                            alert('Service request submitted successfully.');
+                            servicePopup.style.display = 'none';
+                            displayTrackingPopup(data.trackingId);
+                        } else {
+                            alert(data.message || 'Service request failed.');
+                        }
+                    } catch (error) {
+                        console.error('Error submitting service request:', error);
+                        alert('An error occurred. Please try again later.');
+                    }
+                });
+            }
+        
+            // Function to display the tracking popup
+            function displayTrackingPopup(trackingId) {
+                document.getElementById('tracking-id').innerText = trackingId;
+                trackingPopup.style.display = 'block';
+            }
+        });
+        </script>
+   <!-- <script src="https://kit.fontawesome.com/efb65bb23a.js" crossorigin="anonymous"></script>-->
+    <script src="../INDEX/script.js"></script>
+</body>
+
+</html>

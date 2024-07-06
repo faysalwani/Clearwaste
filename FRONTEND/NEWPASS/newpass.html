@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Waste - Reset Password</title>
+    <link rel="stylesheet" href="newpass.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Clear Waste</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../INDEX/index.html">Home</a></li>
+                <li><a href="../SERVICE-P/service.html">Service</a></li>
+                <li><a href="../TRACKING/tracking.html">Tracking</a></li>
+                <li><a href="../ABOUT/about.html">About</a></li>
+                <li><a href="../CONTACT/contact.html">Contact Us</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit">Search</button>
+                </div>
+                <div class="dark-mode-toggle">
+                    <button id="dark-mode-toggle">Dark Mode</button>
+                </div>
+                <div class="login">
+                    <a id="login-link" href="../LOGIN/login.html">Login</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form-page-container">
+            <div class="form-container">
+                <h2>Reset Password</h2>
+                <form id="reset-password-form">
+
+                    <label for="otp">OTP</label>
+                    <input type="text" id="otp" name="otp" required>
+
+                    <label for="new-password">New Password</label>
+                    <input type="password" id="new-password" name="new-password" required>
+
+                    <button type="submit">Reset Password</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="../INDEX/script.js"></script>
+</body>
+</html>

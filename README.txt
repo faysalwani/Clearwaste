@@ -22,7 +22,7 @@
    EMAIL_PASS="email password"
    JWT_SECRET="your secret token"
    TRACKING_ID="tracking ID here"
-   DRIVER_EMAIL="email where to send data about users"
+   DRIVER_EMAIL="email where to send data about users".
    ```.env
 5. Run nodemon server.js or node server.js.
 

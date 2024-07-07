@@ -273,6 +273,26 @@ if (signupForm) {
         }
     });
 }
+
+/*// sign up condition check
+document.querySelector('form').addEventListener('submit', function(event) {
+    const password = document.querySelector('input[name="password"]').value;
+    const username = document.querySelector('input[name="name"]').value;
+  
+    if (password === username) {
+      alert('Password cannot be the same as the username.');
+      event.preventDefault();
+      return;
+    }
+  
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordRegex.test(password)) {
+      alert('Password must be at least 8 characters long, include at least one uppercase letter, and one number.');
+      event.preventDefault();
+    }
+  });*/
+  
+
 // OTP Verification Form Submission
 const verifyOtpForm = document.getElementById('verify-otp-form');
 if (verifyOtpForm) {

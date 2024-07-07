@@ -35,24 +35,69 @@
     </header>
 
     <main>
-        <div class="form-page-container">
-            <div class="form-container">
-                <h2>Reset Password</h2>
-                <form id="reset-password-form">
 
-                    <label for="otp">OTP</label>
-                    <input type="text" id="otp" name="otp" required>
-
-                    <label for="new-password">New Password</label>
-                    <input type="password" id="new-password" name="new-password" required>
-
-                    <button type="submit">Reset Password</button>
-                </form>
+        <main>
+            <div class="overlay" id="overlay-reset">
+                <div class="modal">
+                    <h2>Reset Password</h2>
+                    <form id="reset-password-form">
+                        <div class="form-group">
+                            <label for="otp">OTP*</label>
+                            <input type="text" id="otp" name="otp" placeholder="Enter OTP" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="new-password">New Password*</label>
+                            <input type="password" id="new-password" name="new-password" placeholder="Create a new password" required>
+                            <div class="show-password-container">
+                                <input type="checkbox" id="show-password-reset">
+                                <label for="show-password-reset"> Show Password</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="password-criteria" id="password-criteria-reset">
+                                <p id="criteria-username-reset">Password Cannot be same as username</p>
+                                <p id="criteria-length-reset">At least 8 characters</p>
+                                <p id="criteria-uppercase-reset">At least 1 uppercase</p>
+                                <p id="criteria-number-reset">At least 1 Number</p>
+                            </div>
+                        </div>
+                        <button type="submit">Reset Password</button>
+                    </form>
+                </div>
             </div>
-        </div>
+<script>
+    
+    // Ensure the password criteria are hidden initially
+document.getElementById('password-criteria-reset').style.display = 'none';
 
-    </main>
+document.getElementById('new-password').addEventListener('focus', function() {
+    document.getElementById('password-criteria-reset').style.display = 'block';
+});
 
+document.getElementById('new-password').addEventListener('blur', function() {
+    if (document.getElementById('new-password').value === '') {
+        document.getElementById('password-criteria-reset').style.display = 'none';
+    }
+});
+
+document.getElementById('new-password').addEventListener('input', function() {
+    const password = document.getElementById('new-password').value;
+
+    document.getElementById('criteria-length-reset').style.color = password.length >= 8 ? 'green' : 'red';
+    document.getElementById('criteria-uppercase-reset').style.color = /[A-Z]/.test(password) ? 'green' : 'red';
+    document.getElementById('criteria-number-reset').style.color = /\d/.test(password) ? 'green' : 'red';
+});
+
+document.getElementById('show-password-reset').addEventListener('change', function() {
+    const passwordInput = document.getElementById('new-password');
+    if (this.checked) {
+        passwordInput.type = 'text';
+    } else {
+        passwordInput.type = 'password';
+    }
+});
+
+</script>
     <script src="../INDEX/script.js"></script>
 </body>
 </html>

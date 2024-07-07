@@ -4,14 +4,26 @@ const jwt = require('jsonwebtoken');
 const { sendOTP } = require('../utils/email');
 const { generateOTP } = require('../utils/otp');
 
+// Password validation function
+const validatePassword = (password, username) => {
+  const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
+  return password !== username && passwordRegex.test(password);
+};
+
 // User Signup
 exports.signup = async (req, res) => {
   const { name, email, password, address } = req.body;
   try {
+    if (!validatePassword(password, name)) {
+      return res.status(400).json({
+        message: 'Password must be at least 8 characters long, include at least one uppercase letter, one number, and cannot be the same as the username'
+      });
+    }
     const userExists = await User.findOne({ email });
     if (userExists) {
       return res.status(400).json({ message: 'User already exists' });
     }
+
     const hashedPassword = await bcrypt.hash(password, 10);
     const otp = generateOTP();
     const newUser = new User({
@@ -108,7 +120,7 @@ exports.verifyResetOtp = async (req, res) => {
   }
 };
 
-// Reset Password
+/*// Reset Password
 exports.resetPassword = async (req, res) => {
   const { email, otp, newPassword } = req.body;
   try {
@@ -125,7 +137,38 @@ exports.resetPassword = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Server error' });
   }
+};*/
+
+// Reset Password
+exports.resetPassword = async (req, res) => {
+  const { email, otp, newPassword } = req.body;
+  try {
+    // Validate new password
+    const user = await User.findOne({ email });
+    if (!validatePassword(newPassword, user.name)) {
+      return res.status(400).json({
+        message: 'Password must be at least 8 characters long, include at least one uppercase letter, one number, and cannot be the same as the username'
+      });
+    }
+
+    // Check OTP and expiration
+    if (!user || user.otp !== otp || user.otpExpires <= Date.now()) {
+      return res.status(400).json({ message: 'Invalid OTP or OTP expired' });
+    }
+
+    // Hash new password and save changes
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    user.password = hashedPassword;
+    user.otp = null;
+    user.otpExpires = null;
+    await user.save();
+
+    res.status(200).json({ message: 'Password reset successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
 };
+
 
 // Get User Details
 exports.getUserDetails = async (req, res) => {

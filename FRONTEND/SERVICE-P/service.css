@@ -23,6 +23,14 @@
     border-radius: 10px;
     position: relative;
     text-align: left;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .account-content,
+body.dark-mode .update-content,
+body.dark-mode .delete-content {
+    background-color: #333;
+    color: #e0e0e0;
 }
 
 .close {
@@ -42,12 +50,19 @@
     cursor: pointer;
 }
 
+.dark-mode .close:hover{
+    color: #ffffff;
+}
+
 h2 {
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
 }
 
+body.dark-mode h2 {
+    color: #e0e0e0;
+}
 .account-info p, .update-info p, .delete-content p {
     font-size: 14px;
     margin-bottom: 5px;
@@ -61,6 +76,14 @@ input[type="text"], input[type="email"], select {
     box-sizing: border-box;
     font-size: 14px;
     margin-top: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode select {
+    background-color: #555;
+    color: #e0e0e0;
 }
 
 .mainpopup button {
@@ -439,7 +462,6 @@ html, body {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
     font-family: 'Trebuchet MS', sans-serif;
     padding-top: 60px; 
 }
@@ -567,28 +589,28 @@ nav {
 
 /* Dark mode styles */
 body.dark-mode {
-    background-color: #333;
-    color: #fff;
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 body.dark-mode header {
-    background-color: #444;
+    background-color: #333;
 }
 
 body.dark-mode nav a {
-    color: #fff;
+    color: #e0e0e0;
 }
 
 body.dark-mode .search-bar button,
 body.dark-mode .dark-mode-toggle button,
 body.dark-mode .login a {
-    background-color: #fff;
-    color: #333;
+    background-color: #333;
+    color: #e0e0e0;
 }
 
 body.dark-mode .search-bar button:hover,
 body.dark-mode .dark-mode-toggle button:hover,
 body.dark-mode .login a:hover {
-    background-color: #333;
-    color: #fff;
+    background-color: #4CAF50;
+    color: #e0e0e0;
 }

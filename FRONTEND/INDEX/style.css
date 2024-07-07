@@ -6,9 +6,9 @@ html, body {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
     font-family: 'Trebuchet MS', sans-serif;
     padding-top: 60px; 
+    transition: background-color 0.3s, color 0.3s;
 }
 
 header {
@@ -52,6 +52,10 @@ nav {
 .nav-links li a:hover {
     color: #293029;
 }
+body.dark-mode .nav-links li a:hover {
+    color:#4CAF50;
+}
+
 
 .nav-right {
     display: flex;
@@ -134,30 +138,30 @@ nav {
 
 /* Dark mode styles */
 body.dark-mode {
-    background-color: #333;
-    color: #fff;
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 body.dark-mode header {
-    background-color: #444;
+    background-color: #333;
 }
 
 body.dark-mode nav a {
-    color: #fff;
+    color: #e0e0e0;
 }
 
 body.dark-mode .search-bar button,
 body.dark-mode .dark-mode-toggle button,
 body.dark-mode .login a {
-    background-color: #fff;
-    color: #333;
+    background-color: #333;
+    color: #e0e0e0;
 }
 
 body.dark-mode .search-bar button:hover,
 body.dark-mode .dark-mode-toggle button:hover,
 body.dark-mode .login a:hover {
-    background-color: #333;
-    color: #fff;
+    background-color: #4CAF50;
+    color: #e0e0e0;
 }
 
 /* ACCOUNT/ UPDATE/ DELETE Popup */
@@ -184,8 +188,15 @@ body.dark-mode .login a:hover {
     border-radius: 10px;
     position: relative;
     text-align: left;
+    transition: background-color 0.3s, color 0.3s;
 }
 
+body.dark-mode .account-content,
+body.dark-mode .update-content,
+body.dark-mode .delete-content {
+    background-color: #333;
+    color: #e0e0e0;
+}
 .close {
     position: absolute;
     top: 10px;
@@ -203,10 +214,18 @@ body.dark-mode .login a:hover {
     cursor: pointer;
 }
 
+.dark-mode .close:hover{
+    color: #ffffff;
+}
+
 h2 {
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
+}
+
+body.dark-mode h2 {
+    color: #e0e0e0;
 }
 
 .account-info p, .update-info p, .delete-content p {
@@ -222,6 +241,14 @@ input[type="text"], input[type="email"], select {
     box-sizing: border-box;
     font-size: 14px;
     margin-top: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode select {
+    background-color: #555;
+    color: #e0e0e0;
 }
 
 .mainpopup button {
@@ -282,6 +309,7 @@ button#delete-btn:hover, button#confirm-delete-btn:hover {
     background-color: #22C55E;
     padding: 2rem 0;
     margin-top: 65px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .hero .container {
@@ -306,6 +334,11 @@ button#delete-btn:hover, button#confirm-delete-btn:hover {
     height: auto;
 }
 
+body.dark-mode .hero {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
 /* Achievements section */
 .achievements {
     padding: 2rem 0;
@@ -326,6 +359,12 @@ button#delete-btn:hover, button#confirm-delete-btn:hover {
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .achievement-cards .card {
+    background-color: #555;
+    color: #e0e0e0;
 }
 
 /* Features section */
@@ -348,7 +387,18 @@ button#delete-btn:hover, button#confirm-delete-btn:hover {
     border: 1px solid #ddd;
     padding: 1rem;
     border-radius: 8px;
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .features {
+    background-color: #121212;
+}
+body.dark-mode .feature-card {
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 /* Waste Types section */
@@ -371,8 +421,13 @@ button#delete-btn:hover, button#confirm-delete-btn:hover {
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1);
 }
 
+body.dark-mode .waste-card {
+    background-color: #121212;
+    color: #e0e0e0;
+}
 /* Call to Action section */
 .call-to-action {
     background-color: #22C55E;
@@ -428,4 +483,8 @@ footer {
 
 .footer-social .social-icons a img:hover {
     transform: scale(1.1);
+}
+
+body.dark-mode footer {
+    background-color: #333;
 }
